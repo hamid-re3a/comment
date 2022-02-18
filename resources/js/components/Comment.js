@@ -27,7 +27,10 @@ const Comment = ({ comments, comment, handleModal }) => {
                                 <a
                                     href="#"
                                     onClick={() => {
-                                        handleModal(comment.id);
+                                        handleModal(
+                                            comment.id,
+                                            comment._dpt + 1
+                                        );
                                     }}
                                 >
                                     <span>

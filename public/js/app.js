@@ -6222,7 +6222,7 @@ var Comment = function Comment(_ref) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               href: "#",
               onClick: function onClick() {
-                handleModal(comment.id);
+                handleModal(comment.id, comment._dpt + 1);
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
@@ -6317,8 +6317,9 @@ function Main() {
       comments = _useState4[0],
       setComments = _useState4[1];
 
-  var handleModal = function handleModal(id) {
+  var handleModal = function handleModal(id, dpt) {
     setId(id);
+    setDpt(dpt);
     handleShow();
   };
 
@@ -6327,15 +6328,20 @@ function Main() {
       id = _useState6[0],
       setId = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState8 = _slicedToArray(_useState7, 2),
-      name = _useState8[0],
-      setName = _useState8[1];
+      dpt = _useState8[0],
+      setDpt = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState10 = _slicedToArray(_useState9, 2),
-      message = _useState10[0],
-      setMessage = _useState10[1];
+      name = _useState10[0],
+      setName = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState12 = _slicedToArray(_useState11, 2),
+      message = _useState12[0],
+      setMessage = _useState12[1];
 
   var updateComments = function updateComments() {
     window.axios.get("/api/comments").then(function (response) {
@@ -6369,8 +6375,10 @@ function Main() {
       handleClose();
       setId(null);
       setComments([].concat(_toConsumableArray(comments), [_objectSpread(_objectSpread({}, params), {}, {
-        id: res.data.data.id
+        id: res.data.data.id,
+        _dpt: dpt
       })]));
+      setDpt(0);
     })["catch"](function () {
       return alert("try again");
     });

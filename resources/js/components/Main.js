@@ -11,12 +11,14 @@ function Main() {
 
     const [comments, setComments] = useState(null);
 
-    const handleModal = (id) => {
+    const handleModal = (id, dpt) => {
         setId(id);
+        setDpt(dpt);
         handleShow();
     };
 
     const [id, setId] = useState(null);
+    const [dpt, setDpt] = useState(0);
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
     const updateComments = () => {
@@ -46,13 +48,16 @@ function Main() {
             .then((res) => {
                 handleClose();
                 setId(null);
+
                 setComments([
                     ...comments,
                     {
                         ...params,
                         id: res.data.data.id,
+                        _dpt: dpt,
                     },
                 ]);
+                setDpt(0);
             })
             .catch(() => alert("try again"));
     }
