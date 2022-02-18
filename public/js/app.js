@@ -6378,9 +6378,15 @@ function Main() {
         id: res.data.data.id,
         _dpt: dpt
       })]));
+      setName("");
+      setMessage("");
       setDpt(0);
     })["catch"](function () {
-      return alert("try again");
+      setId(null);
+      setName("");
+      setMessage("");
+      setDpt(0);
+      alert("try again");
     });
   }
 

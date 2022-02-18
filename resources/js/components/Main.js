@@ -57,9 +57,17 @@ function Main() {
                         _dpt: dpt,
                     },
                 ]);
+                setName("");
+                setMessage("");
                 setDpt(0);
             })
-            .catch(() => alert("try again"));
+            .catch(() => {
+                setId(null);
+                setName("");
+                setMessage("");
+                setDpt(0);
+                alert("try again");
+            });
     }
     return (
         <div className="container mb-5 mt-5">
