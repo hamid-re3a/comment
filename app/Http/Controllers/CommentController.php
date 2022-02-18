@@ -25,7 +25,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        return $this->repository->all();
+        return api()->success('success',Comment::query()->latest()->get()->toArray());
     }
 
     public function store(CreateCommentRequest $request)

@@ -24,8 +24,8 @@ class CreateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:3',
-            'message' => 'required|string|min:3',
+            'name' => 'required|string|min:2',
+            'message' => 'required|string|min:2',
             'parent_id' => 'sometimes|exists:comments,id',
         ];
     }
