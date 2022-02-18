@@ -26,7 +26,7 @@ class CreateCommentRequest extends FormRequest
         return [
             'name' => 'required|string|min:3',
             'message' => 'required|string|min:3',
-            'comment_id' => 'sometimes|exists:comments,id',
+            'parent_id' => 'sometimes|exists:comments,id',
         ];
     }
 }

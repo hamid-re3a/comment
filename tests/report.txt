@@ -1,6 +1,10 @@
 Comment (Tests\Unit\Comment)
- [x] Example
+ [x] Can not add more than three layer comment
 
 Comment (Tests\Feature\Comment)
- [x] Create new comment
+ [x] Create new comment green
+ [x] Create new comment failed
+ [x] Create new comment and sub comment green
+ [x] Can not create comment more than three layer
+ [x] Show all comments
 

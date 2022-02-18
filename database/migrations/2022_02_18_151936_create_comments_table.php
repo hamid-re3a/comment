@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Kalnoy\Nestedset\NestedSet;
 
 class CreateCommentsTable extends Migration
 {
@@ -17,6 +18,9 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('message');
+            NestedSet::columns($table);
+            $table->unsignedInteger('_dpt')->default(0);
+            $table->index('_dpt');
             $table->timestamps();
         });
     }

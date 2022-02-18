@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/comments', 'App\Http\Controllers\CommentController@store')->name('api.comment.store');
+Route::get('/comments', 'App\Http\Controllers\CommentController@index')->name('api.comment.index');
