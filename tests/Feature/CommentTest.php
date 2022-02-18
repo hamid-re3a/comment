@@ -12,7 +12,15 @@ class CommentTest extends TestCase
      */
     public function create_new_comment()
     {
-        $res = $this->post(route('api.comment.store'),[])->assertOk();
+        $res = $this->post(route('api.comment.store'),[
+            'name'=>'hamid',
+            'message'=>'Hello this is my comment'
+        ])->assertOk();
+
+
+        $this->assertDatabaseHas('comments',[
+            'name'=>'hamid'
+        ]);
 
     }
 }

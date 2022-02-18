@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,4 +14,4 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-Route::post('/comments', [CommentController::class ,'store'])->name('api.comment.store');
+Route::post('/comments', 'App\Http\Controllers\CommentController@store')->name('api.comment.store');
