@@ -2,5 +2,5 @@ Comment (Tests\Unit\Comment)
  [x] Example
 
 Comment (Tests\Feature\Comment)
- [ ] Create new comment
+ [x] Create new comment
 
