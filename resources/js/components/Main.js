@@ -43,10 +43,16 @@ function Main() {
         }
         window.axios
             .post("/api/comments", params)
-            .then(() => {
+            .then((res) => {
                 handleClose();
                 setId(null);
-                updateComments();
+                setComments([
+                    ...comments,
+                    {
+                        ...params,
+                        id: res.data.data.id,
+                    },
+                ]);
             })
             .catch(() => alert("try again"));
     }
